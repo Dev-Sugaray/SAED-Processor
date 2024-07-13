@@ -24,11 +24,10 @@ jobs:
           FTP_PORT: ${{ secrets.FTP_PORT }}
           FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
         run: |
-          cd solaa_frontend
           lftp -f "
           set ssl:verify-certificate no
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER
-          mirror -R -e ./dist $FTP_REMOTE_DIR
+          mirror -R -e ./ $FTP_REMOTE_DIR
           bye
           "
           
