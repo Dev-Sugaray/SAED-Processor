@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Processor</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>   
+
+
+    
+    <style type="text/css">
+        .app-container {
+            font-family: "San Serif";
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: calc(100vh - 1rem);
+        }
+        .app-header-text {
+            flex: 30%;
+            font-family: monospace;
+            text-align: center;
+        }
+        .app-menu {
+            flex: 70%;
+            text-align: center;
+            
+        }
+
+        ul {
+            list-style: none;
+            margin-left: -15px;
+        }
+        
+        li {
+            transition: background-color 200ms ease-in;
+        }
+
+        li a {
+            -webkit-tap-highlight-color: transparent;
+            display: block;
+            border-bottom: 1px solid gray;
+            padding: 10px 30px;
+            color: black;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        li:active {
+            background-color: rgba(0,0,0,.2);
+        }
+
+        input[type=file]{
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: rgba(100, 100,255);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: white;
+            transition: transform 300ms ease-in;
+        }
+
+        button:active {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="app-header-text">SAED Attendance Processor</h1>
+        <div class="app-menu">
+            <input type="file" id="csvFile" accept=".csv">
+            <button onclick="processCSV()">Process File</button>
+            <p id="progress"></p>
+            <a id="downloadLink" style="display:none;">Download Processed File</a>
+        </div>
+       
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
